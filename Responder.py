@@ -47,6 +47,8 @@ parser.add_option('--disable-ess',         action="store_true", help="Force ESS 
 parser.add_option('-v','--verbose',        action="store_true", help="Increase verbosity.", dest="Verbose")
 parser.add_option('-t','--ttl',            action="store",      help="Change the default Windows TTL for poisoned answers. Value in hex (30 seconds = 1e). use '-t random' for random TTL", dest="TTL", metavar="1e", default=None)
 parser.add_option('-N', '--AnswerName',	   action="store",      help="Specifies the canonical name returned by the LLMNR poisoner in tits Answer section. By default, the answer's canonical name is the same as the query. Changing this value is mainly useful when attempting to perform Kebreros relaying over HTTP.", dest="AnswerName", default=None)
+parser.add_option('-X','--exclude',        action="store",      help="Exclude values in the requests, comma separated", dest="Exclude", metavar="srv_printing", default=None)
+
 options, args = parser.parse_args()
 
 if not os.geteuid() == 0:
